@@ -5,7 +5,8 @@ generators:
 - type: "no_params"
   assertions:
   - "@StatusCode == 200"
-  tags: null
+  tags:
+  - " OWASP - OTG-CONFIG-006"
   severity: "Major"
   database: null
   inactive: true
@@ -19,22 +20,15 @@ generators:
   severity: "Major"
   database: null
   inactive: true
-  matches:
-  - name: null
-    value: null
-    methods: null
-    denyRoles: null
-    allowRoles: null
-    pathPatterns: null
-    resourceSamples: null
-    queryParams: null
-    bodyProperties: null
+  matches: []
   authors: ""
   abacResources: null
 - type: "anonymous_invalid"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
-  tags: null
+  tags:
+  - "OWASP - OTG-AUTHN-002"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -53,7 +47,15 @@ generators:
 - type: "auth_invalid"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
-  tags: null
+  tags:
+  - "OWASP A2"
+  - "OWASP A5"
+  - "OWASP A6"
+  - "OWASP A7"
+  - "[PIC DSS 3.0] 6.5.8"
+  - "[PIC DSS 3.0] 6.5.10"
+  - "OTG-AUTHN-004"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -72,7 +74,15 @@ generators:
 - type: "auth_invalid_empty"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
-  tags: null
+  tags:
+  - "OWASP A2"
+  - "OWASP A5"
+  - "OWASP A6"
+  - "OWASP A7"
+  - "[PIC DSS 3.0] 6.5.8"
+  - "[PIC DSS 3.0] 6.5.10"
+  - "OTG-AUTHN-004"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -91,7 +101,11 @@ generators:
 - type: "auth_invalid_sql"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
-  tags: null
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "OTG-AUTHN-004"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -111,7 +125,9 @@ generators:
   assertions:
   - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
   - "Allowed:@StatusCode != 401 AND @StatusCode != 403"
-  tags: null
+  tags:
+  - "OWASP - OTG-IDENT-001 "
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: false
@@ -131,7 +147,8 @@ generators:
   assertions:
   - "Create:@StatusCode == 200 OR @StatusCode == 201"
   - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
-  tags: null
+  tags:
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -142,7 +159,8 @@ generators:
   assertions:
   - "Create:@StatusCode == 200 OR @StatusCode == 201"
   - "Allowed:@StatusCode == 200 OR @StatusCode == 201"
-  tags: null
+  tags:
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -153,7 +171,9 @@ generators:
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
-  tags: null
+  tags:
+  - "[PCI DSS 3.0] 6.5.2"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -175,7 +195,12 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
-  tags: null
+  tags:
+  - "OWASP A3"
+  - "[PIC DSS 3.0] 6.5.7"
+  - "OWASP - OTG-INPVAL-001"
+  - "OWASP - OTG-INPVAL-002"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
   inactive: true
@@ -186,7 +211,11 @@ generators:
   assertions:
   - "@ResponseTime < 7000 OR @ResponseTime > 10000"
   - "@StatusCode != 404"
-  tags: null
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database:
     name: "MySQL"
@@ -201,7 +230,8 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
-  tags: null
+  tags:
+  - "OWASP - Log Injection"
   severity: "Major"
   database: null
   inactive: true
@@ -212,7 +242,8 @@ generators:
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
-  tags: null
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
   inactive: true
@@ -225,7 +256,8 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
-  tags: null
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
   inactive: true
@@ -238,7 +270,8 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
-  tags: null
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
   inactive: true
@@ -262,7 +295,8 @@ generators:
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
-  tags: null
+  tags:
+  - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
   inactive: true
