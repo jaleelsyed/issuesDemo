@@ -16,7 +16,7 @@ headers:
 - "Content-Type: application/json"
 testCases: []
 assertions:
-- "@StatusCode == 401 AND @StatusCode == 403"
+- "@StatusCode == 401 OR @StatusCode == 403"
 cleanup: []
 severity: "Major"
 category: "RBAC"
